@@ -18,17 +18,7 @@ public class UserService {
         User curUser = new User();
         curUser.setUsername(user.getUsername());
         curUser.setEmail(user.getEmail());
-        curUser.setCreated_at(LocalDateTime.now());
         return userRepository.save(curUser);
-    }
-
-    public User updateUser(User user) {
-        User existingUser = userRepository.findById(user.getId())
-                .orElseThrow(() -> new RuntimeException("유저를 찾을 수 없습니다."));
-        existingUser.setUsername(user.getUsername());
-        existingUser.setEmail(user.getEmail());
-        existingUser.setCreated_at(LocalDateTime.now());
-        return userRepository.save(existingUser);
     }
 
     public String deleteUser(Long id) {

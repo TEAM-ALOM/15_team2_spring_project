@@ -3,7 +3,7 @@ package com.example.qwer;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users") // 공통 경로 수정
+@RequestMapping("/api/user") // 공통 경로 수정
 public class UserController {
     private final UserService userService;
 
@@ -20,6 +20,7 @@ public class UserController {
     }
 
     // 유저 수정: JSON 요청 + 유저 정보 받고 User 객체 정보 수정
+    /*
     @PutMapping("/{userId}")
     public String updateUser(@PathVariable("userId") Long id, @RequestBody User user) {
         user.setId(id); // URL 변수에서 ID 설정
@@ -27,10 +28,11 @@ public class UserController {
         System.out.println("업데이트된 유저 정보: "+updatedUser);
         return "유저 업데이트 완료";
     }
+    */
 
     // 유저 삭제: URL 변수 요청 + 유저 ID 받고 유저 삭제
-    @DeleteMapping("/{userId}")
-    public String deleteUser(@PathVariable Long userId) {
+    @DeleteMapping()
+    public String deleteUser(@RequestParam Long userId) { // ?userId=(숫자)
         userService.deleteUser(userId);
         return "유저정보 삭제 완료";
     }
