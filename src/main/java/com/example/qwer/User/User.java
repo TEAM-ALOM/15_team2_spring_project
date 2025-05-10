@@ -15,9 +15,8 @@ import java.time.LocalDateTime;
 @Setter // Lombok을 사용하는 경우 추가
 @ToString
 public class User {
+
     @Id
-
-
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 또는 다른 전략 선택
     private Long id;
     private String username;
