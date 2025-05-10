@@ -1,5 +1,4 @@
-package com.example.qwer.todo;
-
+package com.example.qwer.Order.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class todoResponse {
-    private String title;
-    private String todo;
+public class OrderCreateResponse {
+    private Long orderId;
 }
