@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Service
 public class LikeService {
     private LikeRepository likeRepository;
-    private BoardRepository boardRepository;
+    private com.example.qwer.CartRepository boardRepository;
     private UserRepository userRepository;
 
     public LikeService(LikeRepository likeRepository) {
