@@ -1,5 +1,4 @@
-package com.example.qwer.todo;
-
+package com.example.qwer.orders.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,11 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class todoUpdateRequest {
+@NoArgsConstructor
+public class OrderCancelResponse {
+    private Long orderId;
     private Long userId;
-    private String title;
-    private String todo;
-    private long todoId;
 }

@@ -1,15 +1,14 @@
-package com.example.qwer.Cart;
+package com.example.qwer.cart;
 
-import com.example.qwer.User;
-import com.example.qwer.Product;
+import com.example.qwer.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Table(name = "Cart")
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,17 +18,10 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartId;
 
-    // User와 1:1 관계
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", unique = true, nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId")
     private User user;
 
-    // Product와 다대다 관계 (중간 테이블 생성)
-    @ManyToMany
-    @JoinTable(
-            name = "cart_product",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private Set<Product> products;
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<CtoP> products;
 }

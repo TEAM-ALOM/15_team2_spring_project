@@ -1,4 +1,4 @@
-package com.example.qwer.Order.dto;
+package com.example.qwer.orders.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderCreateRequest {
-    private Long userId;
+public class OrderCreateResponse {
+    private Long orderId;
 }

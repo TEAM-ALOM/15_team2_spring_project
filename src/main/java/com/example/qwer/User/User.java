@@ -1,24 +1,23 @@
-package com.example.qwer;
+package com.example.qwer.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter // Lombok을 사용하는 경우 추가
-@ToString
+@Table(name = "User")
+@Getter @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 또는 다른 전략 선택
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
+
+    @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(nullable = false)
     private String email;
 }
